@@ -49,8 +49,8 @@ class SequenceAnalyzer:
             for hsp in alignment.hsps:
                 fasta_list.append(">{0}\n{1}\n\n".format(alignment.title, hsp.sbjct))
 
-        #with open(self.blasta_file, "w") as tempFile:
-        #   tempFile.writelines(fasta_list)
+        with open(self.blasta_file, "w") as tempFile:
+           tempFile.writelines(fasta_list)
 
     def mafft(self):
         os.system("mafft\mafft --localpair --quiet {0} > {1}".format(self.blasta_file, self.mafft_output))
